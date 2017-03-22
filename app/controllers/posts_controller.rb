@@ -19,6 +19,18 @@ class PostsController < ApplicationController
     end
   end
 
+ def edit
+   @post = Post.find(params[:id])
+   #@post = Post.new
+ end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    flash[:alert] = "Post deleted"
+    redirect_to groups_path
+  end
+
 
   private
 
